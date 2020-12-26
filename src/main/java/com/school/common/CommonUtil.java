@@ -35,7 +35,7 @@ public class CommonUtil {
      * @param data 数据
      * @return ResultPlus
      */
-    public static ResultPlus pageRequestSuccess(Integer total, Integer pageSize, Integer pageIndex, Object data) {
+    public static ResultPlus pageRequestSuccess(int total, Integer pageSize, Integer pageIndex, Object data) {
         ResultPlus result = new ResultPlus();
         result.setCode("1");
         result.setData(data);

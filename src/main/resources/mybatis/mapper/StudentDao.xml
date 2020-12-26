@@ -10,13 +10,11 @@
         <result column="student_code" property="studentCode" />
     </resultMap>
 
-
-    <select id="listStudent" resultMap="BaseStudent" parameterType="HashMap">
+    <select id="listStudent" resultMap="BaseStudent" parameterType="com.school.bean.po.QueryCondition">
         select * from student
         <where>
-            <if test="student_name!=null">student_name like #{student_name}</if>
+            <if test="param.studentName!=null">student_name like #{param.studentName}</if>
         </where>
-        limit 1,10
     </select>
 
     <select id="queryCount" resultType="java.lang.Integer">

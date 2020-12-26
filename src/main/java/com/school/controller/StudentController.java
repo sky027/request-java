@@ -1,5 +1,6 @@
 package com.school.controller;
 
+import com.school.bean.po.QueryCondition;
 import com.school.bean.po.ResultPlus;
 import com.school.bean.po.Student;
 import com.school.service.StudentService;
@@ -18,8 +19,8 @@ public class StudentController {
     private StudentService service;
 
     @PostMapping("/listStudent")
-    private ResultPlus listStudent(@RequestBody HashMap<String,Object> map) {
-        return service.listStudent(map);
+    private ResultPlus listStudent(@RequestBody QueryCondition queryCondition) {
+        return service.listStudent(queryCondition);
     }
 
 

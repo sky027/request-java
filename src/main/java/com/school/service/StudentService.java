@@ -1,6 +1,7 @@
 package com.school.service;
 
 
+import com.school.bean.po.QueryCondition;
 import com.school.bean.po.ResultPlus;
 import com.school.bean.po.Student;
 
@@ -11,9 +12,9 @@ public interface StudentService {
 
     /**
      * 查询列表
-     * @param map
+     * @param queryCondition
      * @return
      */
-    ResultPlus listStudent(HashMap<String,Object> map);
+    ResultPlus listStudent(QueryCondition queryCondition);
 
 }

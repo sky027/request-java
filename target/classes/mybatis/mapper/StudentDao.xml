@@ -10,15 +10,16 @@
         <result column="student_code" property="studentCode" />
     </resultMap>
 
-
-    <select id="listStudent" resultMap="BaseStudent" parameterType="string">
+    <select id="listStudent" resultMap="BaseStudent" parameterType="com.school.bean.po.QueryCondition">
         select * from student
         <where>
-            <if test="student_name!=null">student_name=#{student_name}</if>
+            <if test="param.studentName!=null">student_name like #{param.studentName}</if>
         </where>
     </select>
 
-
+    <select id="queryCount" resultType="java.lang.Integer">
+        select count(*) from student
+    </select>
 
 
 </mapper>

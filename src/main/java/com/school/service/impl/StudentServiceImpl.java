@@ -1,5 +1,6 @@
 package com.school.service.impl;
 
+import com.school.bean.po.QueryCondition;
 import com.school.bean.po.ResultPlus;
 import com.school.bean.po.Student;
 import com.school.common.CommonUtil;
@@ -18,9 +19,12 @@ public class StudentServiceImpl implements StudentService {
     private StudentDao studentDao;
 
     @Override
-    public ResultPlus listStudent(HashMap<String,Object> map) {
-        List<Student> list = studentDao.listStudent(map);
+    public ResultPlus listStudent(QueryCondition queryCondition) {
+        List<Student> student = studentDao.listStudent(queryCondition);
         int total = studentDao.queryCount();
-        return CommonUtil.pageRequestSuccess(total, 10, 1, list);
+        Integer start = (queryCondition.getPageIndex() - 1) * queryCondition.getPageSize();
+        Integer end = queryCondition.getPageIndex() * queryCondition.getPageSize();
+         List<Student> list = student.subList(start, end);
+        return CommonUtil.pageRequestSuccess(total, queryCondition.getPageSize(), queryCondition.getPageIndex(), list);
     }
 }
