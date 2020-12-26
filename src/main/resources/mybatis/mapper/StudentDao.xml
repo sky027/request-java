@@ -11,14 +11,17 @@
     </resultMap>
 
 
-    <select id="listStudent" resultMap="BaseStudent" parameterType="string">
+    <select id="listStudent" resultMap="BaseStudent" parameterType="HashMap">
         select * from student
         <where>
-            <if test="student_name!=null">student_name=#{student_name}</if>
+            <if test="student_name!=null">student_name like #{student_name}</if>
         </where>
+        limit 1,10
     </select>
 
-
+    <select id="queryCount" resultType="java.lang.Integer">
+        select count(*) from student
+    </select>
 
 
 </mapper>

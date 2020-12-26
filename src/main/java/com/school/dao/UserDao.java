@@ -16,7 +16,8 @@ public interface UserDao {
 
 
     /**
-     * 根据account查询是否存在
+     * 登录、根据account查询是否存在
      */
     List<User> queryUserByAccount(@Param("account") String account, @Param("password") String password);
+
 }

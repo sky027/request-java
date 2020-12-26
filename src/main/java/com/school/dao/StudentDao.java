@@ -4,15 +4,20 @@ import com.school.bean.po.Student;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
 public interface StudentDao {
 
-/**
- * 查询所有
- */
+    /**
+     * 查询学生列表
+     */
+    List<Student> listStudent(HashMap<String,Object> map);
 
-    List<Student> listStudent(@Param("student_name") String student_name);
+    /**
+     * 查询总数
+     */
+    int queryCount();
 
 }
