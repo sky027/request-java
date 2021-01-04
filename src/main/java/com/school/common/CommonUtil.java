@@ -2,6 +2,8 @@ package com.school.common;
 
 import com.school.bean.po.ResultPlus;
 
+import java.util.Map;
+
 public class CommonUtil {
     /**
      * 请求成功

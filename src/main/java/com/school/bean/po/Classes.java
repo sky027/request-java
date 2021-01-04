@@ -4,23 +4,48 @@ import java.io.Serializable;
 
 public class Classes implements Serializable {
     // 班级id
-    private String class_id;
+    private String classId;
     // 班级名称
-    private String class_name;
+    private String className;
+    // 班级总数
+    private Integer studentTotal;
 
-    public String getClass_id() {
-        return class_id;
+    public Classes(String classId, String className, Integer studentTotal) {
+        this.classId = classId;
+        this.className = className;
+        this.studentTotal = studentTotal;
     }
 
-    public void setClass_id(String class_id) {
-        this.class_id = class_id;
+    public String getClassId() {
+        return classId;
     }
 
-    public String getClass_name() {
-        return class_name;
+    public void setClassId(String classId) {
+        this.classId = classId;
     }
 
-    public void setClass_name(String class_name) {
-        this.class_name = class_name;
+    public String getClassName() {
+        return className;
+    }
+
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
+    public Integer getStudentTotal() {
+        return studentTotal;
+    }
+
+    public void setStudentTotal(Integer studentTotal) {
+        this.studentTotal = studentTotal;
+    }
+
+    @Override
+    public String toString() {
+        return "Classes{" +
+                "classId='" + classId + '\'' +
+                ", className='" + className + '\'' +
+                ", studentTotal=" + studentTotal +
+                '}';
     }
 }

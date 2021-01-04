@@ -21,9 +21,14 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public ResultPlus listStudent(QueryCondition queryCondition) {
         List<Student> student = studentDao.listStudent(queryCondition);
-        int total = studentDao.queryCount();
+        // int total = studentDao.queryCount();
+        int total = student.size();
         Integer start = (queryCondition.getPageIndex() - 1) * queryCondition.getPageSize();
         Integer end = queryCondition.getPageIndex() * queryCondition.getPageSize();
+        if (student.size() < end) {
+            end = student.size();
+        }
+        System.out.println(end);
          List<Student> list = student.subList(start, end);
         return CommonUtil.pageRequestSuccess(total, queryCondition.getPageSize(), queryCondition.getPageIndex(), list);
     }

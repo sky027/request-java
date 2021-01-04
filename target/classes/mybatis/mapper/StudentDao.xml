@@ -13,7 +13,8 @@
     <select id="listStudent" resultMap="BaseStudent" parameterType="com.school.bean.po.QueryCondition">
         select * from student
         <where>
-            <if test="param.studentName!=null">student_name like #{param.studentName}</if>
+            <if test="param.studentName!=null">student_name like concat('%',#{param.studentName},'%')</if>
+            <if test="param.classId!=null">and class_id = #{param.classId}</if>
         </where>
     </select>
 

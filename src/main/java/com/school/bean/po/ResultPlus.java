@@ -17,19 +17,6 @@ public class ResultPlus {
     // 总数
     private Integer total;
 
-    public ResultPlus() {
-
-    }
-
-
-    public ResultPlus(String code, Object data, Integer pageIndex, Integer pageSize, Integer total) {
-        this.code = code;
-        this.data = data;
-        this.pageIndex = pageIndex;
-        this.pageSize = pageSize;
-        this.total = total;
-    }
-
     public String getCode() {
         return code;
     }
@@ -80,4 +67,5 @@ public class ResultPlus {
                 ", total=" + total +
                 '}';
     }
+
 }
